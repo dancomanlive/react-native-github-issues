@@ -70,7 +70,7 @@ const App: FunctionComponent = () => {
 
   const renderItem = ({item, index}: {item: IIssue; index: number}) => {
     return (
-      <View style={styles.item}>
+      <View testID="issue-item" style={styles.item}>
         <Text style={styles.title}>
           {index + 1} - {item.title}
         </Text>
@@ -79,10 +79,11 @@ const App: FunctionComponent = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View testID="home" style={styles.container}>
       <Text style={styles.label}>Enter organization name</Text>
       <View>
         <TextInput
+          testID="organization-text-input"
           placeholder="Facebook"
           style={styles.input}
           onChange={handleOrgChange}
@@ -91,12 +92,14 @@ const App: FunctionComponent = () => {
       <View style={styles.repoInputView}>
         <Text style={styles.label}>Enter repository name</Text>
         <TextInput
+          testID="repo-text-input"
           placeholder="React"
           style={styles.input}
           onChange={handleRepoChange}
         />
       </View>
       <TouchableOpacity
+        testID="search"
         onPress={handleSearch}
         style={styles.button}
         activeOpacity={0.8}
